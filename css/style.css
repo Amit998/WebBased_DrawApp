@@ -3,7 +3,7 @@ body{
     background-color: #283333;
 }
 .toolBox{
-    height: 100vh;
+    height: 110vh;
     width: 100px;
     position: absolute;
     background-color: #3a4b4b;
@@ -34,7 +34,19 @@ body{
 
 }
 
+
+
+
 .toolBox .group.linewidths .item  .linewidth{
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+
+.toolBox .group.linewidths .item  .brushWidth{
     position: absolute;
     background-color: white;
     border-radius: 50%;
@@ -45,11 +57,13 @@ body{
 
 }
 
+
+
+
 .toolBox.left{
     left: 0px;
     top: 0px;
  
-
 }
 
 .toolBox.right{

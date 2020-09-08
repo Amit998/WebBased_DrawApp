@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw App</title>
-    <link rel="stylesheet" href="stylel.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" type="module" defer></script>
+    
 </head>
 <body>
     <div class="toolBox left">
@@ -21,45 +22,50 @@
         </div>
         <div class="group shape">
 
-            <div class="item active" data-command="line" title="line">
+            <div class="item active" data-tools="line" title="line">
                 <img src="./img/line.png" alt="" style="height: 24px; width: 24px;">
             </div>
             
-            <div class="item" data-command="square" title="square">
+            <div class="item" data-tools="squre" title="squre">
                 <img src="./img/square.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
             
 
-            <div class="item" data-command="rectangle" title="rectangle">
+            <div class="item" data-tools="rectangle" title="rectangle">
                 <img src="./img/rectangle.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
-            <div class="item" data-command="triangle" title="triangle">
+            <div class="item" data-tools="circle" title="circle">
+                <img src="./img/circle.png" alt="" style="height: 24px; width: 24px;">
+            </div>
+
+
+            <div class="item" data-tools="triangle" title="triangle">
                 <img src="./img/triangle.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
 
         </div>
         <div class="group tools">
-            <div class="item" data-command="pencil" title="Pencil Tool">
+            <div class="item" data-tools="pencil" title="Pencil Tool">
                 <img src="./img/pencil.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
-            <div class="item" data-command="brush" title="Brush Tool">
+            <div class="item" data-tools="brush" title="Brush Tool">
                 <img src="./img/brush.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
-            <div class="item" data-command="paint-bucket" title="Paint Bucket">
+            <div class="item" data-tools="paint-bucket" title="Paint Bucket">
                 <img src="./img/Paint_Bucket.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
-            <div class="item" data-command="eraser" title="Eraser Tool">
+            <div class="item" data-tools="eraser" title="Eraser Tool">
                 <img src="./img/Erase.png" alt="" style="height: 24px; width: 24px;">
             </div>
 
         </div>
-        <div class="group linewidths">
+        <div class="group linewidths for-shapes" style="display: block;">
             <div class="item active" data-line-width="1" title="1 Pixel">
                 <div class="linewidth" style="width: 1px; height: 1px;"></div>
             </div>
@@ -74,6 +80,25 @@
 
             <div class="item" data-line-width="10" title="10 Pixel">
                 <div class="linewidth" style="width: 10px; height: 10px;"></div>
+            </div>
+            
+        </div>
+
+        <div class="group linewidths for-brushs" style="display:none; ">
+            <div class="item active" data-line-width="11" title="11 Pixel">
+                <div class="brushWidth" style="width: 11px; height: 11px;"></div>
+            </div>
+
+            <div class="item" data-line-width="12" title="12 Pixel">
+                <div class="brushWidth" style="width: 12px; height: 12px;"></div>
+            </div>
+
+            <div class="item" data-line-width="15" title="15 Pixel">
+                <div class="brushWidth" style="width: 15px; height: 15px;"></div>
+            </div>
+
+            <div class="item" data-line-width="20" title="20 Pixel">
+                <div class="brushWidth" style="width: 20px; height: 20px;"></div>
             </div>
             
         </div>
@@ -116,6 +141,8 @@
         </div>
         
     </div>
+
+    
 
 </body>
 </html>
