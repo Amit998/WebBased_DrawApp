@@ -4,6 +4,9 @@ import Paint from './paint.class.js'
 
 var paint =new Paint("canvas")
 paint.activeTool = TOOL_LINE;
+paint.lineWidth=1;
+paint.brushSize=11;
+paint.selectColor="#000000"
 paint.init();
 
 document.querySelectorAll("[data-command]").forEach(
@@ -21,7 +24,7 @@ document.querySelectorAll("[data-command]").forEach(
 document.querySelectorAll("[data-tools]").forEach(
     item => {
         item.addEventListener("click", e =>{
-            // console.log(item.getAttribute("data-tools"));
+            console.log(item.getAttribute("data-tools"));
   
             document.querySelector("[data-tools].active").classList.toggle("active");
             item.classList.toggle("active");
@@ -70,8 +73,35 @@ document.querySelectorAll("[data-line-width]").forEach(
             
             document.querySelector("[data-line-width].active").classList.toggle("active");
             item.classList.toggle("active");
+            let linewidth= item.getAttribute("data-line-width");
+            paint.lineWidth=linewidth;
         });
     }
 );
 
+
+document.querySelectorAll("[data-brush-size]").forEach(
+    item => {
+        item.addEventListener("click", e =>{
+            
+            document.querySelector("[data-brush-size].active").classList.toggle("active");
+            item.classList.toggle("active");
+            let brushsize= item.getAttribute("data-brush-size");
+            paint.brushSize=brushsize;
+        });
+    }
+);
+
+
+document.querySelectorAll("[data-color]").forEach(
+    item => {
+        item.addEventListener("click", e =>{
+            
+            document.querySelector("[data-color].active").classList.toggle("active");
+            item.classList.toggle("active");
+            let color= item.getAttribute("data-color");
+            paint._color=color;
+        });
+    }
+);
 
