@@ -45,6 +45,7 @@ export default class Paint{
   
 
     onMouseDown(e){
+<<<<<<< HEAD
  
         // console.log(this._linewidth);
         this.context.strokeStyle=this._color;
@@ -69,8 +70,29 @@ export default class Paint{
         }
         
                 
+=======
+        console.log(this._linewidth);
+        this.context.strokeStyle=this._color;
+        
+        this.saveData=this.context.getImageData(0,0,this.canvas.clientWidth,this.canvas.clientHeight)
+       
+>>>>>>> 7f977fc84d88a1748a30b85ae5c5e57c288a4394
+
+        this.canvas.onmousemove=e=> this.onMouseMove(e);
+        document.onmouseup=e=> this.onMouseUp(e);
+        this.startPos=getMouseCoordsOnCanvas(e,this.canvas);
+      
+
+<<<<<<< HEAD
+=======
+        if(this.tool == TOOL_PENCIL || this.tool == TOOL_BRUSH){
+            this.context.beginPath();
+            this.context.moveTo(this.startPos.x,this.startPos.y)
+        }
+                
 
 
+>>>>>>> 7f977fc84d88a1748a30b85ae5c5e57c288a4394
        
 
     }
@@ -106,7 +128,11 @@ export default class Paint{
     onMouseUp(e){
         this.canvas.onmousemove=null;
         document.onmouseup=null;
+<<<<<<< HEAD
         // console.log('up')
+=======
+        console.log('up')
+>>>>>>> 7f977fc84d88a1748a30b85ae5c5e57c288a4394
 
     }
     drawShape(){
