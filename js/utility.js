@@ -1,8 +1,9 @@
 import Ponit from './point.model.js'
+
 export function getMouseCoordsOnCanvas(e,canvas){
     let rect=canvas.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
+    let x = Math.round(e.clientX - rect.left);
+    let y = Math.round(e.clientY - rect.top);
 
     return new Ponit(x,y); //{x:x.y:y}
 

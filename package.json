@@ -1,0 +1,22 @@
+{
+  "name": "drawapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amit998/WebBased_DrawApp.git"
+  },
+  "author": "amit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amit998/WebBased_DrawApp/issues"
+  },
+  "homepage": "https://github.com/Amit998/WebBased_DrawApp#readme",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
