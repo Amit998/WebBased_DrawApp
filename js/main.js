@@ -1,4 +1,4 @@
-import {TOOL_LINE,TOOL_RECTANGE,TOOL_CIRCLE,TOOL_TRIANGLE,TOOL_PENCIL,TOOL_SQURE,TOOL_BRUSH} from './tool.js'
+import {TOOL_LINE,TOOL_RECTANGE,TOOL_CIRCLE,TOOL_TRIANGLE,TOOL_PENCIL,TOOL_SQURE,TOOL_BRUSH, TOOL_ERASER} from './tool.js'
 import Paint from './paint.class.js'
 
 
@@ -12,7 +12,20 @@ paint.init();
 document.querySelectorAll("[data-command]").forEach(
     item => {
         item.addEventListener("click", e =>{
-            console.log(item.getAttribute("data-command"));
+            let command= item.getAttribute("data-command");
+  
+
+            if( command === 'undo' ){
+                paint.undoPaint();
+            }else if ( command === 'download'){
+    
+                var canvas= document.getElementById("canvas");
+                var image=canvas.toDataURL("image/png",1.0).replace("image/png","image/octet-stream");
+                var link = document.createElement("a");
+                link.download="my-image.png";
+                link.href=image;
+                link.click()
+            }
             
         });
     }
@@ -46,6 +59,8 @@ document.querySelectorAll("[data-tools]").forEach(
 
                     break;
                 case TOOL_BRUSH:
+                case TOOL_ERASER:
+
                     // Activate brush line widths group
                     document.querySelector(".group.for-brushs").style.display = "block"
                     // DeActive shape linewidths group
