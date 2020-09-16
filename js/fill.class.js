@@ -1,48 +1,61 @@
-import Point from "./point.model.js";
+import Point from "./point.model.js"; 
 
 export default class fillColor{
     constructor(canvas,point,color){
         this.context= canvas.getContext("2d");
-        console.log(point);
-        console.log(color);
+        // console.log(point,'point');
+        // console.log(color,'color');
 
         this.imageData=this.context.getImageData(0,0,this.context.canvas.width,this.context.canvas.height);
         
-        console.log(this.imageData)
+        // console.log(this.imageData);
 
         const targetColor=this.getPixel(point);
 
-        console.log(targetColor);
+
 
         const fillColor=this.hexToRgb(color);
+        
 
         this.fillStack= [];
-        console.log(fillColor);
+ 
         this.floodFill(point,targetColor,fillColor)
     }
 
 
     floodFill(point,targetColor,fillColor){
+        
+
+        
         if(this.colorMatch(targetColor,fillColor)) return;
+
+        console.log(point,'point');
+        console.log(targetColor,'target color');
+        console.log(fillColor,'fill color')
 
         const currentColor =this.getPixel(point);
 
         if(this.colorMatch(currentColor,targetColor)){
+
             this.setPixel(point,fillColor);
 
-            this.fillStack.push([new Point(point.x + 1, point.y),targetColor,fillColor]);
-            this.fillStack.push([new Point(point.x - 1, point.y),targetColor,fillColor]);
-            this.fillStack.push([new Point(point.x , point.y+1),targetColor,fillColor]);
-            this.fillStack.push([new Point(point.x , point.y -1),targetColor,fillColor]);
+
+            console.log('passed');
+            this.fillStack.push([new Point(point.x + 1, point.y),targetColor,this.fillColor()]);
+            this.fillStack.push([new Point(point.x - 1, point.y),targetColor,this.fillColor()]);
+            this.fillStack.push([new Point(point.x , point.y+1),targetColor,this.fillColor()]);
+            this.fillStack.push([new Point(point.x , point.y -1),targetColor,this.fillColor()]);
         }
 
     }
 
     fillColor(){
+        console.log('filling');
         if(this.fillStack.length){
             let range = this.fillStack.length;
 
             for(let i =0 ; i< range ; i++){
+               
                 this.floodFill(this.fillStack[i][0],this.fillStack[i][1],this.fillStack[i][2]);
             }
             this.fillStack.splice(0,range);
@@ -57,7 +70,12 @@ export default class fillColor{
             return [-1,-1,-1,-1]; //no color
         }else{
             const offset = (point.y * this.imageData.width + point.x) * 4;
-            return [this.imageData.data[offset + 0],this.imageData.data[offset + 1],this.imageData.data[offset + 2],this.imageData.data[offset + 3]];
+            return [
+                this.imageData.data[offset + 0], //red
+                this.imageData.data[offset + 1], //green
+                this.imageData.data[offset + 2], // blue
+                this.imageData.data[offset + 3] //alpha
+            ];
             
         }
     }
